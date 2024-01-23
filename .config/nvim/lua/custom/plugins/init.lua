@@ -2,8 +2,28 @@
 return {
   -- trivially replace surrounding pairs
   'tpope/vim-surround',
-  -- <Esc> mappings
   {
+    -- add context on top of window
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = {
+      max_lines = 20,
+    },
+  },
+  {
+    -- Theme
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    opts = {
+      flavour = 'mocha',
+    },
+    config = function()
+      vim.cmd.colorscheme 'catppuccin'
+    end,
+  },
+
+  {
+    -- <Esc> mappings
     'max397574/better-escape.nvim',
     opts = {
       mapping = { 'jk', 'jj' },   -- a table with mappings to use
