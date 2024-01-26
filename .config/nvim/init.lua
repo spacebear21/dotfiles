@@ -405,6 +405,18 @@ vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by 
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
+-- Window shortcuts
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Go to left window' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Go to down window' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Go to up window' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Go to right window' })
+vim.keymap.set('n', '<leader>-', '<C-w>s', { desc = 'Split window horizontally' })
+vim.keymap.set('n', '<leader>\\', '<C-w>v', { desc = 'Split window vertically' })
+vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Increase window height' })
+vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease window height' })
+vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase window width' })
+vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease window width' })
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
@@ -509,7 +521,6 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
