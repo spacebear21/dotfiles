@@ -518,6 +518,10 @@ local on_attach = function(_, bufnr)
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 
+  nmap('<leader>ih', function()
+    vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+  end, 'Toggle [I]nlay [H]ints')
+
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
