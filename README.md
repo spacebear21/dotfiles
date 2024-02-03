@@ -5,13 +5,7 @@ Approach inspired by [Storing dotfiles with Git](https://web.archive.org/web/202
 ## Installation
 
 ```
-git clone --bare https://github.com/<username>/dotfiles.git $HOME/.dotfiles
-```
-
-Add this to .zshrc/.bashrc (TODO: check this in and add `source` to install command):
-
-```
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+git clone --bare https://github.com/<username>/dotfiles.git $HOME/.dotfiles && source ~/.zshrc
 ```
 
 This may be needed to not display all files in home dir:
