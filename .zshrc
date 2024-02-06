@@ -98,9 +98,6 @@ export EDITOR=$VISUAL
 # Turn off all beeps
 unsetopt BEEP
 
-# Vim mode in terminal
-bindkey -v
-
 # Aliases
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias vim='nvim'
