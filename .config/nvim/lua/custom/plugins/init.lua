@@ -2,6 +2,8 @@
 return {
   -- trivially replace surrounding pairs
   'tpope/vim-surround',
+  -- highlight other uses of the word under the cursor
+  'RRethy/vim-illuminate',
   {
     -- add context on top of window
     'nvim-treesitter/nvim-treesitter-context',
