@@ -5,9 +5,14 @@ Approach inspired by [Storing dotfiles with Git](https://web.archive.org/web/202
 ## Installation
 
 ```
+# Clone the bare repository.
 git clone --bare https://github.com/grizznaut/dotfiles.git $HOME/.dotfiles
+# Checkout to apply the changes.
+# It will fail if there are any conflicts with existing files. Resolve conflicts manually if needed.
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
+# Source the changes.
 source ~/.zshrc
+# Hide untracked files.
 dotfiles config status.showUntrackedFiles no
 ```
 
