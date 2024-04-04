@@ -5,13 +5,10 @@ Approach inspired by [Storing dotfiles with Git](https://web.archive.org/web/202
 ## Installation
 
 ```
-git clone --bare https://github.com/<username>/dotfiles.git $HOME/.dotfiles && source ~/.zshrc
-```
-
-This may be needed to not display all files in home dir:
-
-```
-dotfiles status.showUntrackedFiles no
+git clone --bare https://github.com/grizznaut/dotfiles.git $HOME/.dotfiles
+/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
+source ~/.zshrc
+dotfiles config status.showUntrackedFiles no
 ```
 
 ## Usage
