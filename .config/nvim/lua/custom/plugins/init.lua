@@ -8,7 +8,8 @@ return {
     -- add context on top of window
     'nvim-treesitter/nvim-treesitter-context',
     opts = {
-      max_lines = 20,
+      max_lines = 10,
+      separator = '-',
     },
   },
   {
