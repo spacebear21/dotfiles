@@ -527,9 +527,9 @@ local on_attach = function(_, bufnr)
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 
-  nmap('<leader>ih', function()
+  nmap('<leader>th', function()
     vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
-  end, 'Toggle [I]nlay [H]ints')
+  end, 'toggle inlay hints')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -581,7 +581,13 @@ local servers = {
   clangd = {},
   -- gopls = {},
   pyright = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+    ['rust-analyzer'] = {
+      cargo = {
+        features = "all",
+      }
+    }
+  },
   -- tsserver = {},
   html = { filetypes = { 'html', 'htm' } },
 
