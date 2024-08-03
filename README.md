@@ -6,7 +6,7 @@ Approach inspired by [Storing dotfiles with Git](https://web.archive.org/web/202
 
 ```
 # Clone the bare repository.
-git clone --bare https://github.com/grizznaut/dotfiles.git $HOME/.dotfiles
+git clone --bare --recurse-submodules https://github.com/grizznaut/dotfiles.git $HOME/.dotfiles
 # Checkout to apply the changes.
 # It will fail if there are any conflicts with existing files. Resolve conflicts manually if needed.
 /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
