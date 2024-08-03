@@ -72,8 +72,11 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+export CATPPUCCIN_FLAVOR="mocha"
+#export CATPPUCCIN_FLAVOR="latte"
+
 # Load syntax highlighting - this must be done *before* loading the zsh-syntax-highlighting plugin
-source ~/.oh-my-zsh/custom/themes/syntax-highlighting/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/custom/themes/syntax-highlighting/catppuccin_${CATPPUCCIN_FLAVOR}-zsh-syntax-highlighting.zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/

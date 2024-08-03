@@ -18,6 +18,7 @@ return {
     name = 'catppuccin',
     priority = 1000,
     opts = {
+      flavour = os.getenv("CATPPUCCIN_FLAVOR"),
       no_italic = true,
       transparent_background = true,
     },
