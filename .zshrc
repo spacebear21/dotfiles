@@ -72,8 +72,41 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-export CATPPUCCIN_FLAVOR="mocha"
-#export CATPPUCCIN_FLAVOR="latte"
+# MacOS dark/light toggle, from https://github.com/pndurette/zsh-lux/blob/main/zsh-lux.plugin.zsh
+
+# _is_macos: check if OS is macOS
+# * Returns 1 if OS is not macOS
+# * Echos to stderr with name of calling function
+function _is_macos() {
+    local fct=$funcstack[2]
+    if [[ ! "$OSTYPE" =~ ^darwin ]]; then
+        return 1;
+    fi
+}
+
+# macos_is_dark: check if the dark mode in macOS is active
+# * Returns:
+# *  0 if dark mode is active
+# *  1 if light mode is active
+# *  2 if the status of the dark mode can't be determined
+#    (i.e. the version of macOS does not support it)
+function macos_is_dark() {
+    local dark_mode=$(osascript -l JavaScript -e \
+        "Application('System Events').appearancePreferences.darkMode.get()")
+
+    if   [[ "$dark_mode" == "true" ]];  then return 0
+    elif [[ "$dark_mode" == "false" ]]; then return 1
+    else
+        echo "can't get macOS dark mode status."
+        return 2
+    fi
+}
+
+if _is_macos && ! macos_is_dark; then
+  export CATPPUCCIN_FLAVOR="latte"
+else
+  export CATPPUCCIN_FLAVOR="mocha"
+fi
 
 # Load syntax highlighting - this must be done *before* loading the zsh-syntax-highlighting plugin
 source ~/.oh-my-zsh/custom/themes/syntax-highlighting/catppuccin_${CATPPUCCIN_FLAVOR}-zsh-syntax-highlighting.zsh
