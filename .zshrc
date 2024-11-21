@@ -111,12 +111,16 @@ fi
 # Load syntax highlighting - this must be done *before* loading the zsh-syntax-highlighting plugin
 source ~/.oh-my-zsh/custom/themes/syntax-highlighting/catppuccin_${CATPPUCCIN_FLAVOR}-zsh-syntax-highlighting.zsh
 
+# zsh-nvm options https://github.com/lukechilds/zsh-nvm?tab=readme-ov-file#options
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aliases colored-man-pages fd git ripgrep rust tmux z zsh-syntax-highlighting)
+plugins=(aliases colored-man-pages fd git ripgrep rust tmux z zsh-nvm zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
