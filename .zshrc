@@ -4,7 +4,6 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -114,7 +113,7 @@ source ~/.oh-my-zsh/custom/themes/syntax-highlighting/catppuccin_${CATPPUCCIN_FL
 # zsh-nvm options https://github.com/lukechilds/zsh-nvm?tab=readme-ov-file#options
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim' 'claude')
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -144,6 +143,9 @@ export EDITOR=$VISUAL
 
 # Turn off all beeps
 unsetopt BEEP
+
+# Claude Code
+export PATH="$HOME/.claude/local:$PATH"
 
 # Aliases
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
