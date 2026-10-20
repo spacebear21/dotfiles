@@ -90,15 +90,7 @@ function _is_macos() {
 # *  2 if the status of the dark mode can't be determined
 #    (i.e. the version of macOS does not support it)
 function macos_is_dark() {
-    local dark_mode=$(osascript -l JavaScript -e \
-        "Application('System Events').appearancePreferences.darkMode.get()")
-
-    if   [[ "$dark_mode" == "true" ]];  then return 0
-    elif [[ "$dark_mode" == "false" ]]; then return 1
-    else
-        echo "can't get macOS dark mode status."
-        return 2
-    fi
+ [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]
 }
 
 if _is_macos && ! macos_is_dark; then
