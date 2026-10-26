@@ -137,7 +137,7 @@ export EDITOR=$VISUAL
 unsetopt BEEP
 
 # Claude Code
-export PATH="$HOME/.claude/local:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Aliases
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
